@@ -15,7 +15,7 @@ export const Header = async () => {
       <MaxWidthWrapper>
         <div className="flex h-full items-center justify-between">
           <Link href={ROUTES.home} className="z-40 flex font-semibold">
-            <Image src="/logo.svg" height={50} width={50} alt="Logo" />
+            <Image src="/logo.svg" height={50} width={50} alt="Logo" priority />
           </Link>
 
           <div className="flex h-full items-center space-x-4">
