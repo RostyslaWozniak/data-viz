@@ -104,7 +104,7 @@ export default function Home() {
         </MaxWidthWrapper>
       </section>
       {/*Why us */}
-      <section className="bg-dotted-spacing-4 bg-dotted-gray-200 overflow-x-hidden md:space-y-20 md:py-40">
+      <section className="bg-dotted-spacing-4 bg-dotted-gray-200 overflow-x-hidden py-20 md:space-y-20 md:py-40">
         <H2 bg>Why Choose Our Platform</H2>
 
         {whyUsData.map(({ title, text }, i) => (
