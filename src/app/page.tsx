@@ -77,13 +77,15 @@ export default function Home() {
             </div>
           </div>
           <div className="relative h-full min-h-[400px] min-w-[450px] lg:min-h-[700px]">
-            <Image
-              width={800}
-              height={500}
-              src="/hero-img.png"
-              alt="background image"
-              className="absolute top-1/2 min-w-full -translate-y-1/3 sm:-right-40 sm:min-w-[800px] lg:-translate-y-1/4"
-            />
+            <div className="absolute top-1/2 w-full -translate-y-1/3 sm:-right-40 sm:w-[800px] lg:-translate-y-1/4">
+              <Image
+                width={800}
+                height={500}
+                src="/hero-img.png"
+                alt="background image"
+                className="h-auto w-auto"
+              />
+            </div>
           </div>
         </MaxWidthWrapper>
       </section>
@@ -122,13 +124,13 @@ export default function Home() {
                 <H3 className="text-start">{title}</H3>
                 <Text>{text}</Text>
               </div>
-              <div className="max-w-[600px]">
+              <div className="w-[min(600px,100%)]">
                 <Image
                   width={600}
                   height={300}
                   src={`/img-${i + 1}.png`}
                   alt={`image ${title}`}
-                  className="w-full rounded-xl border-2 border-slate-500 bg-white shadow-xl"
+                  className="h-full w-full rounded-xl border-2 border-slate-500 bg-white shadow-xl"
                 />
               </div>
               <div className="absolute bottom-0 left-0 h-1 w-full rounded-full bg-slate-400" />
