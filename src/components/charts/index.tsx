@@ -24,11 +24,11 @@ export default function Demo() {
     <>
       {selectedLabel.length > 0 && selectedValues.length > 0 ? (
         <Card className="no-scrollbar flex items-center overflow-x-scroll shadow-xl">
-          <div ref={chartRef} className="w-full space-y-5 py-5">
-            <div className="min-w-[1000px]">
+          <div ref={chartRef} className="w-full min-w-[1000px] space-y-5 py-5">
+            <div className="w-full">
               <ChartHeading name="My Chart" />
             </div>
-            <div className="flex h-[600px] min-w-[1000px] items-center justify-center">
+            <div className="flex h-[600px] w-full items-center justify-center">
               {activeChart === CHART_TABS[0] && <Bar />}
               {activeChart === CHART_TABS[1] && <Line />}
               {activeChart === CHART_TABS[2] && <Pie />}

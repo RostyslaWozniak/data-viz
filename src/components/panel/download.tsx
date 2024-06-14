@@ -49,12 +49,12 @@ export const DownloadChart = () => {
       a.remove();
     });
     setTimeout(() => setIsPending(false), 300);
-    setTimeout(() => {
-      toast({
-        title: `File ${format} downloaded successfully!`,
-        variant: "accept",
-      });
-    }, 500);
+    // setTimeout(() => {
+    //   toast({
+    //     title: `File ${format} downloaded successfully!`,
+    //     variant: "accept",
+    //   });
+    // }, 500);
   };
 
   return (
