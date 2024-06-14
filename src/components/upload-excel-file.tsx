@@ -74,7 +74,7 @@ export default function UploadExcelFile({
       const worksheetName = workbook.SheetNames[0]; // Get worksheet name
       const worksheet = workbook.Sheets[worksheetName]; // Get worksheet
       const data: Array<{ [key: string]: number | string }> =
-        XLSX.utils.sheet_to_json(worksheet, options); // Convert worksheet to JSON;
+        XLSX.utils.sheet_to_json(worksheet); // Convert worksheet to JSON;
       setSelectedLabel("");
       setSelectedValues([]);
       setData(data);
