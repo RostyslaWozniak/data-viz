@@ -67,7 +67,7 @@ export default function Demo() {
             }
             line={{ strokeWidth: activeItem === val ? 0.5 : 0 }}
           >
-            {activeItem === val && (
+            {(activeItem === val || showOuterLabels) && (
               <LabelList dataKey={selectedLabel} position="top" />
             )}
           </Scatter>
