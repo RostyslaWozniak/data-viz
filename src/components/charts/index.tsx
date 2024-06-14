@@ -24,7 +24,7 @@ export default function Demo() {
     <>
       {selectedLabel.length > 0 && selectedValues.length > 0 ? (
         <Card className="no-scrollbar flex items-center overflow-x-scroll shadow-xl">
-          <div ref={chartRef} className="w-full min-w-[1000px] space-y-5 py-5">
+          <div ref={chartRef} className="w-full min-w-[1000px] pt-10">
             <div className="w-full">
               <ChartHeading name="My Chart" />
             </div>
