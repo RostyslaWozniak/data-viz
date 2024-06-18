@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
+import { Icons } from "@/components/ui/icons";
 
 export function SignUpForm() {
   return (
@@ -37,7 +38,8 @@ export function SignUpForm() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="grid gap-y-4">
-                    <div className="grid grid-cols-1 gap-x-4">
+                    <div className="grid grid-cols-2 gap-x-3">
+                      {/* GOOGLE */}
                       <Clerk.Connection name="google" asChild>
                         <Button
                           size="sm"
@@ -51,6 +53,29 @@ export function SignUpForm() {
                                 <Loader2 className="size-4 animate-spin" />
                               ) : (
                                 <>Google</>
+                              )
+                            }
+                          </Clerk.Loading>
+                        </Button>
+                      </Clerk.Connection>
+
+                      {/* GITHUB */}
+                      <Clerk.Connection name="github" asChild>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          type="button"
+                          disabled={isGlobalLoading}
+                        >
+                          <Clerk.Loading scope="provider:github">
+                            {(isLoading) =>
+                              isLoading ? (
+                                <Icons.spinner className="size-4 animate-spin" />
+                              ) : (
+                                <>
+                                  <Icons.gitHub className="mr-2 size-4" />
+                                  GitHub
+                                </>
                               )
                             }
                           </Clerk.Loading>
@@ -104,7 +129,7 @@ export function SignUpForm() {
                 </Card>
               </SignUp.Step>
 
-              <SignUp.Step name="continue">
+              {/* <SignUp.Step name="continue">
                 <Card className="w-full sm:w-96">
                   <CardHeader>
                     <CardTitle>Continue registration</CardTitle>
@@ -138,10 +163,10 @@ export function SignUpForm() {
                     </div>
                   </CardFooter>
                 </Card>
-              </SignUp.Step>
+              </SignUp.Step> */}
 
               <SignUp.Step name="verifications">
-                <SignUp.Strategy name="code">
+                <SignUp.Strategy name="email_code">
                   <Card className="w-full sm:w-96">
                     <CardHeader>
                       <CardTitle>Verify your email</CardTitle>
@@ -151,7 +176,7 @@ export function SignUpForm() {
                     </CardHeader>
                     <CardContent className="grid gap-y-4">
                       <div className="grid items-center justify-center gap-y-2">
-                        <Clerk.Field name="email_code" className="space-y-2">
+                        <Clerk.Field name="code" className="space-y-2">
                           <Clerk.Label className="sr-only">
                             Email address
                           </Clerk.Label>
@@ -191,7 +216,7 @@ export function SignUpForm() {
                           resend
                           className="text-muted-foreground"
                           fallback={({ resendableAfter }) => (
-                            <Button variant="link" size="sm" disabled>
+                            <Button variant="link" size="sm">
                               Didn&apos;t recieve a code? Resend (
                               <span className="tabular-nums">
                                 {resendableAfter}
@@ -208,7 +233,7 @@ export function SignUpForm() {
                     </CardContent>
                     <CardFooter>
                       <div className="grid w-full gap-y-4">
-                        <SignUp.Action submit asChild>
+                        <SignUp.Action submit>
                           <Button disabled={isGlobalLoading}>
                             <Clerk.Loading>
                               {(isLoading) => {
